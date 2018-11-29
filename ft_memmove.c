@@ -5,35 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdelhaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/06 18:04:22 by cdelhaye          #+#    #+#             */
-/*   Updated: 2018/10/06 18:17:51 by cdelhaye         ###   ########.fr       */
+/*   Created: 2018/11/24 17:06:11 by cdelhaye          #+#    #+#             */
+/*   Updated: 2018/11/26 18:36:52 by cdelhaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
-#include <stdlib.h>
 
-void	*memmove(void *dst, const void *src, size_t len)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char		*d;
-	const unsigned char	*s;
-	unsigned char		tmp[len];
-	unsigned long		i;
+	unsigned char	*udst;
+	unsigned char	*usrc;
+	size_t			i;
 
-	d = (unsigned char *)dst;
-	s = (const unsigned char *)src;
+	udst = (unsigned char *)dst;
+	usrc = (unsigned char *)src;
 	i = 0;
-	while (i < n)
+	if (src < dst && len)
 	{
-		tmp[i] = s[i];
-		i++;
+		while (--len > 0)
+			udst[len] = usrc[len];
+		udst[0] = usrc[0];
 	}
-	i = 0;
-	while (i < n)
-	{
-		d[i] = tmp[i];
-		i++;
-	}
-	free(tmp);
+	else
+		while (i < len)
+		{
+			udst[i] = usrc[i];
+			i++;
+		}
 	return (dst);
 }

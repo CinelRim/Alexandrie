@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdelhaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/06 20:37:41 by cdelhaye          #+#    #+#             */
-/*   Updated: 2018/10/07 18:50:37 by cdelhaye         ###   ########.fr       */
+/*   Created: 2018/11/24 20:25:25 by cdelhaye          #+#    #+#             */
+/*   Updated: 2018/11/24 21:09:16 by cdelhaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,15 @@
 
 void	*ft_memalloc(size_t size)
 {
-	unsigned char *mem;
-	unsigned long i;
+	unsigned char	*mem;
+	size_t			i;
 
-	mem = (unsigned char *)malloc(size);
-	if(!mem)
+	if (!(mem = (unsigned char *)malloc(size)))
 		return (NULL);
 	i = 0;
 	while (i < size)
 	{
-		mem[i] = 0;
+		mem[i] = (unsigned char)0;
 		i++;
 	}
 	return (mem);

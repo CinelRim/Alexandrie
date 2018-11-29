@@ -5,13 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdelhaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/07 17:53:55 by cdelhaye          #+#    #+#             */
-/*   Updated: 2018/10/07 18:52:12 by cdelhaye         ###   ########.fr       */
+/*   Created: 2018/11/24 21:02:58 by cdelhaye          #+#    #+#             */
+/*   Updated: 2018/11/29 20:17:33 by cdelhaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+
 int	ft_strequ(char const *s1, char const *s2)
 {
+	if (!s1 || !s2)
+		return (0);
 	while (*s1 == *s2 && *s1)
 	{
 		s1++;

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdelhaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/07 18:33:32 by cdelhaye          #+#    #+#             */
-/*   Updated: 2018/10/07 18:37:10 by cdelhaye         ###   ########.fr       */
+/*   Created: 2018/11/24 21:06:21 by cdelhaye          #+#    #+#             */
+/*   Updated: 2018/11/29 22:06:09 by cdelhaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,11 @@
 
 int	ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	while (*s1 == *s2 && *s1 && n > 0)
+	if (!s1 || !s2)
+		return (0);
+	if (n == 0)
+		return (1);
+	while (*s1 == *s2 && *s1 && n > 1)
 	{
 		s1++;
 		s2++;

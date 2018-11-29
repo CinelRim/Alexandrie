@@ -5,34 +5,45 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdelhaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/07 18:51:31 by cdelhaye          #+#    #+#             */
-/*   Updated: 2018/10/07 19:10:33 by cdelhaye         ###   ########.fr       */
+/*   Created: 2018/11/24 21:40:39 by cdelhaye          #+#    #+#             */
+/*   Updated: 2018/11/29 22:17:52 by cdelhaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-char	*ft_strtrim(char const *s)
+static int	ft_isspace(char c)
+{
+	if (c == ' ' || c == '\t' || c == '\n' || c == '\v' ||
+		c == '\r' || c == '\f')
+		return (1);
+	else
+		return (0);
+}
+
+char		*ft_strtrim(char const *s)
 {
 	char			*ret;
-	unsigned int	start;
 	unsigned long	len;
+	unsigned long	i;
 
-	start = 0;
-	len = 0;
-	while (s[start] == 32 || s[start] == 09 || s[start] == 10)
-		start++;
-	while (!(s[len] == 32 || s[len] == 09 || s[len] == 10) && s[len])
-		len++;
-	ret = (char *)malloc(len + 1);
-	if (!ret)
+	if (!s)
 		return (NULL);
-	len  = 0;
-	while (!(s[len] == 32 || s[len] == 09 || s[len] == 10) && s[len])
-	{
-		ret[len] = s[start + len];
+	while (ft_isspace(*s))
+		s++;
+	if (!*s)
+		return ("");
+	len = 0;
+	while (s[len])
 		len++;
-	}
-	ret[len] = '\0';
+	len--;
+	while (ft_isspace(s[len]))
+		len--;
+	if (!(ret = (char *)malloc(len + 2)))
+		return (NULL);
+	i = -1;
+	while (++i <= len)
+		ret[i] = s[i];
+	ret[i] = '\0';
 	return (ret);
 }

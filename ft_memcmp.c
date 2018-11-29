@@ -5,27 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdelhaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/06 18:37:13 by cdelhaye          #+#    #+#             */
-/*   Updated: 2018/10/06 18:40:22 by cdelhaye         ###   ########.fr       */
+/*   Created: 2018/11/24 17:33:58 by cdelhaye          #+#    #+#             */
+/*   Updated: 2018/11/29 20:15:02 by cdelhaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-int	memcmp(const void *s1, const void *s2, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	const unsigned char *us1;
-	const unsigned char *us2;
-	unsigned long i;
+	unsigned char	*u1;
+	unsigned char	*u2;
+	size_t			i;
 
-	*us1 = (const unsigned char *)s1;
-	*us2 = (const unsigned char *)s2;
+	if (n == 0)
+		return (0);
+	u1 = (unsigned char *)s1;
+	u2 = (unsigned char *)s2;
 	i = 0;
-	while (i < n)
-	{
-		if (us1[i] == us2[i])
-			return (us1[i] - us2[i]);
+	while (u1[i] == u2[i] && i < (n - 1))
 		i++;
-	}
-	return (0);
+	return ((int)(u1[i] - u2[i]));
 }

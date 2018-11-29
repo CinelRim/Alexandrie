@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdelhaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/06 20:33:03 by cdelhaye          #+#    #+#             */
-/*   Updated: 2018/10/06 20:34:47 by cdelhaye         ###   ########.fr       */
+/*   Created: 2018/11/24 20:01:51 by cdelhaye          #+#    #+#             */
+/*   Updated: 2018/11/24 20:05:32 by cdelhaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	toupper(int c)
+int	ft_toupper(int c)
 {
-	if (c >= 'a' && c <= 'z')
-		c -= 32;
+	if (c >= 97 && c <= 122)
+		return (c - 32);
 	return (c);
 }

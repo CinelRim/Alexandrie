@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdel.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdelhaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/24 20:34:20 by cdelhaye          #+#    #+#             */
-/*   Updated: 2018/11/24 20:47:40 by cdelhaye         ###   ########.fr       */
+/*   Created: 2018/10/29 20:43:48 by cdelhaye          #+#    #+#             */
+/*   Updated: 2018/10/29 20:53:43 by cdelhaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "libft.h"
 
-void	ft_strdel(char **as)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	if (as)
+	t_list *map;
+	t_list *mapstart;
+
+	if (lst == NULL)
+		return (NULL);
+	mapstart = f(lst);
+	map = mapstart;
+	lst = lst->next;
+	while (lst)
 	{
-		free(*as);
-		*as = NULL;
+		map->next = f(lst);
+		map = map->next;
+		lst = lst->next;
 	}
+	return (mapstart);
 }

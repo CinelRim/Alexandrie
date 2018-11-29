@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdelhaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/06 20:03:47 by cdelhaye          #+#    #+#             */
-/*   Updated: 2018/10/06 20:08:53 by cdelhaye         ###   ########.fr       */
+/*   Created: 2018/11/24 19:10:48 by cdelhaye          #+#    #+#             */
+/*   Updated: 2018/11/29 18:45:09 by cdelhaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,5 @@ int	ft_strcmp(const char *s1, const char *s2)
 		s1++;
 		s2++;
 	}
-	return (*s1 - *s2);
+	return (int)((unsigned char)*s1 - (unsigned char)*s2);
 }

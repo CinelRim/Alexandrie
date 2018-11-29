@@ -5,25 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdelhaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/06 19:32:02 by cdelhaye          #+#    #+#             */
-/*   Updated: 2018/10/06 19:35:55 by cdelhaye         ###   ########.fr       */
+/*   Created: 2018/11/24 19:02:39 by cdelhaye          #+#    #+#             */
+/*   Updated: 2018/11/24 20:20:51 by cdelhaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
+
 char	*ft_strrchr(const char *s, int c)
 {
-	char ch;
-	int i;
+	char	ch;
+	int		i;
 
-	ch = (char) c;
+	ch = (char)c;
 	i = 0;
 	while (s[i])
 		i++;
-	i++;
 	while (i >= 0)
 	{
 		if (s[i] == ch)
-			return (s + i);
+			return (char *)(s + i);
 		i--;
 	}
 	return (NULL);

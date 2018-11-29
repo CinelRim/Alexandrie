@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdelhaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/06 21:16:30 by cdelhaye          #+#    #+#             */
-/*   Updated: 2018/10/07 18:51:08 by cdelhaye         ###   ########.fr       */
+/*   Created: 2018/11/24 20:28:21 by cdelhaye          #+#    #+#             */
+/*   Updated: 2018/11/24 20:40:19 by cdelhaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,9 @@ char	*ft_strnew(size_t size)
 {
 	char *str;
 
-	str = (char *)malloc(size+1);
-	if (!str)
+	if (!(str = (char *)malloc(++size)))
 		return (NULL);
-	while (size >= 0)
-	{
+	while (size-- > 0)
 		str[size] = '\0';
-		size--;
-	}
 	return (str);
 }

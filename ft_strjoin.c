@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdelhaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/07 18:44:11 by cdelhaye          #+#    #+#             */
-/*   Updated: 2018/10/07 20:49:15 by cdelhaye         ###   ########.fr       */
+/*   Created: 2018/11/24 21:35:06 by cdelhaye          #+#    #+#             */
+/*   Updated: 2018/11/24 21:40:13 by cdelhaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,9 @@ char		*ft_strjoin(char const *s1, char const *s2)
 	int		i;
 	int		j;
 
-	ret = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
-	if (!ret || (!*s1 && !*s2))
+	if (!s1 || !s2)
+		return (NULL);
+	if (!(ret = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1)))
 		return (NULL);
 	i = 0;
 	j = 0;
@@ -43,5 +44,6 @@ char		*ft_strjoin(char const *s1, char const *s2)
 		ret[i + j] = s2[j];
 		j++;
 	}
+	ret[i + j] = '\0';
 	return (ret);
 }

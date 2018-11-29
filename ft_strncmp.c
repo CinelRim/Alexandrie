@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdelhaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/06 20:07:10 by cdelhaye          #+#    #+#             */
-/*   Updated: 2018/10/06 20:08:45 by cdelhaye         ###   ########.fr       */
+/*   Created: 2018/11/24 19:14:14 by cdelhaye          #+#    #+#             */
+/*   Updated: 2018/11/29 20:14:25 by cdelhaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	while (*s1 == *s2 && *s1 && n > 0)
+	if (n == 0)
+		return (0);
+	while (*s1 == *s2 && *s1 && n > 1)
 	{
 		s1++;
 		s2++;
 		n--;
 	}
-	return (*s1 - *s2);
+	return (int)((unsigned char)*s1 - (unsigned char)*s2);
 }

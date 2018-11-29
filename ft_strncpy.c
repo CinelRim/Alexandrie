@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdelhaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/06 19:02:15 by cdelhaye          #+#    #+#             */
-/*   Updated: 2018/10/06 19:05:30 by cdelhaye         ###   ########.fr       */
+/*   Created: 2018/11/24 18:25:40 by cdelhaye          #+#    #+#             */
+/*   Updated: 2018/11/24 20:13:20 by cdelhaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
-	int i;
+	size_t i;
 
 	i = 0;
 	while (src[i] && i < len)
 	{
-		dst[i] = src[i];
+		dst[i] = (char)src[i];
 		i++;
 	}
 	while (i < len)
 	{
-		dst[i] = '/0';
+		dst[i] = '\0';
 		i++;
 	}
 	return (dst);

@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdelhaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/06 20:35:02 by cdelhaye          #+#    #+#             */
-/*   Updated: 2018/10/06 20:35:49 by cdelhaye         ###   ########.fr       */
+/*   Created: 2018/11/24 20:04:23 by cdelhaye          #+#    #+#             */
+/*   Updated: 2018/11/24 20:05:11 by cdelhaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	tolower(int c)
+int	ft_tolower(int c)
 {
-	if (c >= 'A' && c <= 'Z')
-		c += 32;
+	if (c >= 65 && c <= 90)
+		return (c + 32);
 	return (c);
 }

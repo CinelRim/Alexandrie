@@ -5,28 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdelhaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/06 18:17:34 by cdelhaye          #+#    #+#             */
-/*   Updated: 2018/10/06 18:35:57 by cdelhaye         ###   ########.fr       */
+/*   Created: 2018/11/24 16:53:42 by cdelhaye          #+#    #+#             */
+/*   Updated: 2018/11/24 20:07:39 by cdelhaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n);
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	unsigned char *d;
-	const unsigned char *s;
-	unsigned char uc;
-	unsigned long i;
+	unsigned char	*udst;
+	unsigned char	*usrc;
+	unsigned char	uc;
+	size_t			i;
 
-	d = (unsigned char *)dst;
-	s = (const unsigned char *)src;
+	udst = (unsigned char *)dst;
+	usrc = (unsigned char *)src;
 	uc = (unsigned char)c;
+	i = 0;
 	while (i < n)
 	{
-		d[i] = s[i];
-		if (s[i] == uc)
-			return (d + i + 1);
+		udst[i] = usrc[i];
+		if (usrc[i] == uc)
+			return (&(dst[i + 1]));
 		i++;
 	}
 	return (NULL);

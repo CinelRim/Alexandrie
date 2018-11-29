@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdelhaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/06 17:50:17 by cdelhaye          #+#    #+#             */
-/*   Updated: 2018/10/06 18:14:56 by cdelhaye         ###   ########.fr       */
+/*   Created: 2018/11/24 16:44:01 by cdelhaye          #+#    #+#             */
+/*   Updated: 2018/11/24 18:34:16 by cdelhaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	unsigned long i;
-	unsigned char *d;
-	const unsigned char *s;
+	unsigned char	*udst;
+	unsigned char	*usrc;
+	size_t			i;
 
-	d = (unsigned char *)dst;
-	s = (const unsigned char *)src;
+	udst = (unsigned char *)dst;
+	usrc = (unsigned char *)src;
 	i = 0;
 	while (i < n)
 	{
-		d[i] = s[i];
+		udst[i] = usrc[i];
 		i++;
 	}
 	return (dst);

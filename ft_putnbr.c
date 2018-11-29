@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdelhaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/07 21:56:37 by cdelhaye          #+#    #+#             */
-/*   Updated: 2018/10/07 22:10:59 by cdelhaye         ###   ########.fr       */
+/*   Created: 2018/11/24 22:02:07 by cdelhaye          #+#    #+#             */
+/*   Updated: 2018/11/29 22:09:15 by cdelhaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,20 @@
 
 void	ft_putnbr(int n)
 {
-	unsigned int	nb;
 	char			c;
 
-	if (n < 0)
+	if (n == -2147483648)
+		write(1, "-2147483648", 11);
+	else if (n < 0)
 	{
 		write(1, "-", 1);
-		nb = (unsigned int)-n;
+		ft_putnbr(-n);
 	}
 	else
-		nb = (unsigned int)n;
-	if (nb >= 10)
-		ft_putnbr (nb / 10);
-	c = (char)(nb % 10 + 48);
-	write(1, &c, 1);
+	{
+		if (n >= 10)
+			ft_putnbr(n / 10);
+		c = (char)(n % 10 + 48);
+		write(1, &c, 1);
+	}
 }

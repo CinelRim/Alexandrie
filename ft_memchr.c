@@ -5,16 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdelhaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/06 18:32:46 by cdelhaye          #+#    #+#             */
-/*   Updated: 2018/10/06 18:36:27 by cdelhaye         ###   ########.fr       */
+/*   Created: 2018/11/24 17:29:21 by cdelhaye          #+#    #+#             */
+/*   Updated: 2018/11/24 20:07:56 by cdelhaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*memchr(const void *s, int c, size_t n)
+#include <string.h>
+
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	const unsigned char *us;
-	unsigned char uc;
-	unsigned long i;
+	unsigned long	i;
+	unsigned char	*us;
+	size_t			uc;
 
 	us = (unsigned char *)s;
 	uc = (unsigned char)c;
@@ -22,7 +24,7 @@ void	*memchr(const void *s, int c, size_t n)
 	while (i < n)
 	{
 		if (us[i] == uc)
-			return (us + i);
+			return (&us[i]);
 		i++;
 	}
 	return (NULL);

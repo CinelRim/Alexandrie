@@ -1,22 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdel.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdelhaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/24 20:34:20 by cdelhaye          #+#    #+#             */
-/*   Updated: 2018/11/24 20:47:40 by cdelhaye         ###   ########.fr       */
+/*   Created: 2018/10/29 17:31:06 by cdelhaye          #+#    #+#             */
+/*   Updated: 2018/11/29 21:45:50 by cdelhaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "libft.h"
 
-void	ft_strdel(char **as)
+t_list	*ft_lstnew(void const *content, size_t content_size)
 {
-	if (as)
+	t_list	*list;
+
+	if (!(list = (t_list *)malloc(sizeof(t_list))))
+		return (NULL);
+	if (content == NULL)
 	{
-		free(*as);
-		*as = NULL;
+		list->content = NULL;
+		list->content_size = 0;
 	}
+	else
+	{
+		if (!(list->content = malloc(content_size)))
+			return (NULL);
+		ft_memcpy(list->content, content, content_size);
+		list->content_size = content_size;
+	}
+	list->next = NULL;
+	return (list);
 }

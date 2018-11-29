@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdelhaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/07 19:14:08 by cdelhaye          #+#    #+#             */
-/*   Updated: 2018/10/07 21:24:54 by cdelhaye         ###   ########.fr       */
+/*   Created: 2018/11/24 21:54:24 by cdelhaye          #+#    #+#             */
+/*   Updated: 2018/11/29 21:50:43 by cdelhaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,28 +33,31 @@ static int	ft_wordlen(char const *s, char c)
 	return (count);
 }
 
-char 	**ft_strsplit(char const *s, char c)
+char		**ft_strsplit(char const *s, char c)
 {
 	char	**ret;
-	int 	count;
+	int		count;
 	int		i;
 
-	if (!(ret = (char **)malloc(ft_wordcount(s, c) + 1)))
+	if (!s)
+		return (NULL);
+	if (!(ret = (char **)malloc(sizeof(*ret) * ft_wordcount(s, c) + 1)))
 		return (NULL);
 	count = 0;
 	while (*s)
 	{
 		if (*s != c)
 		{
-			ret[count] = (char *)malloc(ft_wordlen(s, c) + 1);
+			if (!(ret[count] = (char *)malloc(ft_wordlen(s, c) + 1)))
+				return (NULL);
 			i = 0;
 			while (*s != c && *s != '\0')
 				ret[count][i++] = *s++;
-			count++;
+			ret[count++][i] = '\0';
 		}
 		else
 			s++;
 	}
-	ret[count] = 0;
+	ret[count] = NULL;
 	return (ret);
 }

@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bzero.c                                            :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdelhaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/06 17:37:29 by cdelhaye          #+#    #+#             */
-/*   Updated: 2018/10/06 17:41:04 by cdelhaye         ###   ########.fr       */
+/*   Created: 2018/11/24 16:40:06 by cdelhaye          #+#    #+#             */
+/*   Updated: 2018/11/26 18:19:06 by cdelhaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-void	bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-	unsigned char *byte = (unsigned char *)s;
-	while (n > 0)
+	unsigned char	*us;
+	size_t			i;
+
+	us = (unsigned char *)s;
+	i = 0;
+	while (i < n)
 	{
-		*byte = 0;
-		byte++;
-		n--;
+		us[i] = (unsigned char)0;
+		i++;
 	}
 }

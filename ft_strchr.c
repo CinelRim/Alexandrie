@@ -5,12 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdelhaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/06 19:26:44 by cdelhaye          #+#    #+#             */
-/*   Updated: 2018/10/06 19:34:32 by cdelhaye         ###   ########.fr       */
+/*   Created: 2018/11/24 19:00:19 by cdelhaye          #+#    #+#             */
+/*   Updated: 2018/11/24 20:18:38 by cdelhaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*strchr(const char *s, int c)
+#include <string.h>
+
+char	*ft_strchr(const char *s, int c)
 {
 	char	ch;
 	int		i;
@@ -20,10 +22,10 @@ char	*strchr(const char *s, int c)
 	while (s[i])
 	{
 		if (s[i] == ch)
-			return (s + i);
+			return (char *)(s + i);
 		i++;
 	}
 	if (ch == '\0')
-		return (s + i);
+		return (char *)(s + i);
 	return (NULL);
 }

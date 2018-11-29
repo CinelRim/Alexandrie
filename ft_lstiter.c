@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdel.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdelhaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/24 20:34:20 by cdelhaye          #+#    #+#             */
-/*   Updated: 2018/11/24 20:47:40 by cdelhaye         ###   ########.fr       */
+/*   Created: 2018/10/29 20:39:53 by cdelhaye          #+#    #+#             */
+/*   Updated: 2018/10/29 21:19:17 by cdelhaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "libft.h"
 
-void	ft_strdel(char **as)
+void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
-	if (as)
+	t_list *next;
+
+	while (lst)
 	{
-		free(*as);
-		*as = NULL;
+		next = lst->next;
+		f(lst);
+		lst = next;
 	}
 }

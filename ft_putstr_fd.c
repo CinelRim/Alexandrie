@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdelhaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/07 22:13:06 by cdelhaye          #+#    #+#             */
-/*   Updated: 2018/10/07 22:14:40 by cdelhaye         ###   ########.fr       */
+/*   Created: 2018/11/24 22:02:57 by cdelhaye          #+#    #+#             */
+/*   Updated: 2018/11/26 18:14:52 by cdelhaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_putstr_fd(char const *s, int fd)
 {
+	if (!s)
+		return ;
 	while (*s)
 		write(fd, s++, 1);
 }

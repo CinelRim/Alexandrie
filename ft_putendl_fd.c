@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdelhaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/07 21:55:06 by cdelhaye          #+#    #+#             */
-/*   Updated: 2018/10/07 22:15:38 by cdelhaye         ###   ########.fr       */
+/*   Created: 2018/11/24 22:05:25 by cdelhaye          #+#    #+#             */
+/*   Updated: 2018/11/26 18:15:11 by cdelhaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_putendl_fd(char const *s, int fd)
 {
+	if (!s)
+		return ;
 	while (*s)
 		write(fd, s++, 1);
 	write(fd, "\n", 1);

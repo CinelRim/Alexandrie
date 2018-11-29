@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdelhaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/06 21:28:42 by cdelhaye          #+#    #+#             */
-/*   Updated: 2018/10/07 17:52:51 by cdelhaye         ###   ########.fr       */
+/*   Created: 2018/11/24 20:45:35 by cdelhaye          #+#    #+#             */
+/*   Updated: 2018/11/29 19:35:30 by cdelhaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,17 @@
 
 char	*ft_strmap(char const *s, char (*f)(char))
 {
-	char *ret;
-	char *r;
+	char	*ret;
+	char	*r;
+	int		i;
 
-	ret = (char *)malloc(sizeof(s));
+	if (!s || !f)
+		return (NULL);
+	i = 0;
+	while (s[i])
+		i++;
+	if (!(ret = (char *)malloc(i + 1)))
+		return (NULL);
 	r = ret;
 	while (*s)
 	{

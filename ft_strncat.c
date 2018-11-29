@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdelhaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/06 19:10:33 by cdelhaye          #+#    #+#             */
-/*   Updated: 2018/10/06 19:14:31 by cdelhaye         ###   ########.fr       */
+/*   Created: 2018/11/24 18:37:26 by cdelhaye          #+#    #+#             */
+/*   Updated: 2018/11/24 19:36:43 by cdelhaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
-	int i;
-	int j;
+	size_t i;
+	size_t j;
 
 	i = 0;
 	j = 0;
@@ -23,7 +23,7 @@ char	*ft_strncat(char *s1, const char *s2, size_t n)
 		i++;
 	while (s2[j] && j < n)
 	{
-		s1[i + j] = s2[j];
+		s1[i + j] = (char)s2[j];
 		j++;
 	}
 	s1[i + j] = '\0';
